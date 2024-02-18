@@ -1,0 +1,16 @@
+/* The .block class styles the date blocks. */
+.block {
+    display: inline-block; /* The block is displayed as an inline-level block container. */
+    padding: 10px; /* The block has a padding of 10 pixels on all sides. */
+    border: 1px solid #000; /* The block has a 1 pixel solid black border. */
+    margin: 5px; /* The block has a margin of 5 pixels on all sides. */
+    cursor: pointer; /* The cursor changes to a pointer when hovering over the block. */
+}
+
+/* The .selected class styles the selected date block. */
+.selected {
+    /*background-color: yellowgreen; /* The background color of the selected block is green. */
+
+    background-color: rgb(0, 112, 210); /* This is the Salesforce button blue color */
+    color: white; /* This is to ensure the text is visible on the blue background */
+}

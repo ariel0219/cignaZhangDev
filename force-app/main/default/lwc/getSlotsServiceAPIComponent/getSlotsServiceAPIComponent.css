@@ -1,0 +1,23 @@
+/* The .timeslot class styles the timeslot elements. */
+.timeslot {
+    border: 1px solid #ccc; /* The timeslot has a 1 pixel solid light gray border. */
+    padding: 10px; /* The timeslot has a padding of 10 pixels on all sides. */
+    margin: 5px; /* The timeslot has a margin of 5 pixels on all sides. */
+    text-align: center; /* The text inside the timeslot is centered. */
+    flex: 0 0 calc(33.33% - 10px);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.time-slot {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.time-slot.selected {
+    background-color: rgb(0, 112, 210); /* This is the Salesforce button blue color */
+    color: white; /* This is to ensure the text is visible on the blue background */
+}

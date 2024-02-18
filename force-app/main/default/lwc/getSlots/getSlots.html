@@ -1,0 +1,72 @@
+<template>
+    <!-- Lightning Layout for the date inputs -->
+    <lightning-layout>
+        <!-- Lightning Layout Item for the start date input -->
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-input type="date" label="Start Date" value={startDate} min={today} onchange={handleStartDateChange}></lightning-input>
+        </lightning-layout-item>
+        <!-- Lightning Layout Item for the end date input -->
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-input type="date" label="End Date" value={endDate} disabled></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <!-- Lightning Layout for the week navigation buttons -->
+    <lightning-layout horizontal-align="spread">
+        <!-- Lightning Layout Item for the previous week button -->
+        <lightning-layout-item>
+            <lightning-button variant="brand" label="Previous Week" onclick={showPreviousWeek} disabled={previousButtonDisabled}></lightning-button>
+        </lightning-layout-item>
+        <!-- Lightning Layout Item for the next week button -->
+        <lightning-layout-item>
+            <lightning-button variant="brand" label="Next Week" onclick={showNextWeek} disabled={nextButtonDisabled}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <!-- Conditional rendering of weekdays 
+    -->
+    <template for:each={weekDaysWithClass} for:item="day">
+        <div key={day.date} class={day.class} data-date={day.date} style="margin: 8px;"  onclick={selectDay}>
+            {day.date}
+        </div>
+    </template>
+
+    <!--
+    <br/>
+    <h1> Time Preference</h1>
+    <br/>
+    
+    <lightning-layout horizontal-align="spread">
+        <lightning-layout-item>
+            <lightning-button label="Anytime" value="Anytime" onclick={StoreTimePreference}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Morning" value="Morning" onclick={StoreTimePreference}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Afternoon" value="Afternoon" onclick={StoreTimePreference}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    -->
+
+
+    <!-- Conditional rendering of the selected day -->
+    <template if:true={selectedDay}>
+        <!-- Display more information about the selected day here -->
+        <!-- Invoke the Child GetSlotsServiceAPIComponent with the selected date -->
+        <!-- The selectedSlotDay attribute is bound to the selectedDate property of the parent component. It represents the selected date. -->
+        <!-- The startDate attribute is bound to the startDate property of the parent component. It represents the start date of the range. -->
+        <!-- The endDate attribute is bound to the endDate property of the parent component. It represents the end date of the range. -->
+        <!-- The ondateselected attribute is bound to the handleDateSelected method of the parent component. This method is called when a date is selected. -->
+        <!-- The providerId attribute is bound to the providerId property of the parent component. It represents the ID of the provider. -->
+
+        <c-get-slots-service-a-p-i-component
+            selected-slot-day={selectedDate} 
+            start-date={startDate} 
+            end-date={endDate}
+            provider-id={providerId}
+            ondateselected={handleDateSelected}>
+        </c-get-slots-service-a-p-i-component>
+    
+    </template>
+
+</template>

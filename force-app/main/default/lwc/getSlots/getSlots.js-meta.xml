@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="providerId" type="String" label="Provider ID" description="The ID of the provider."/>
+            <property name="startDate" type="Date" label="Start Date" description="The start date for getting slots."/>
+            <property name="endDate" type="Date" label="End Date" description="The end date for getting slots."/>
+            <property name="startTime" type="DateTime" label="Start Time" description="The start time of the slots"/>
+            <property name="endTime" type="DateTime" label="End Time" description="The end time of the slots"/>
+            <property name="selectedDate" type="Date" label="Selected Date" description="The selected date from the calendar."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

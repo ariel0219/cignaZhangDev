@@ -1,0 +1,38 @@
+<template>
+	<!-- A Lightning card component with a title and an icon -->
+	<lightning-card title="Available Timeslots" icon-name="custom:custom25">
+		<!-- A div element with margin around it -->
+		<div class="slds-m-around_medium">
+			<!-- Conditional rendering when isLoading is true -->
+			<template if:true={isLoading}>
+				<!-- A spinner component to indicate loading -->
+				<lightning-spinner variant="brand" style="position:fixed" alternative-text="Loading" size="large"></lightning-spinner>
+			</template>
+			<!-- Conditional rendering when error is true -->
+			<template if:true={error}>
+				<!-- A div element to display error messages -->
+				<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+					<!-- A span element for assistive text -->
+					<span class="slds-assistive-text">error</span>
+					<!-- A h2 element to display the error message -->
+					<h2>{error}</h2>
+				</div>
+			</template>
+			<!-- Conditional rendering when data is true -->
+			<div class="time-slots">
+				<template if:true={timeSlots.timeSlotsWrapperList}>
+					<template if:true={timeSlots.timeSlotsWrapperList.length}>
+						<template for:each={timeSlots.timeSlotsWrapperList} for:item="slot" for:index="index">
+							<div key={slot.slotId} class="time-slot" data-id={slot.slotId} onclick={handleClick}>
+								{slot.startTime} - {slot.endTime}
+							</div>
+						</template>
+					</template>
+					<template if:false={timeSlots.timeSlotsWrapperList.length}>
+						<div style="text-align: center; font-weight: bold;">--No timeslots available--</div>
+					</template>
+				</template>
+			</div>
+		</div>
+	</lightning-card>
+</template>

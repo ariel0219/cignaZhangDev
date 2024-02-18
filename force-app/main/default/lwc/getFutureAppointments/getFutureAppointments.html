@@ -1,0 +1,50 @@
+<template>
+	<lightning-spinner lwc:if={showSpinner} alternative-text="Loading" variant="brand" size="medium">
+	</lightning-spinner>
+
+	<table class="slds-table slds-table_cell-buffer slds-table_bordered"
+		aria-labelledby="element-with-table-label other-element-with-table-label">
+		<thead>
+			<tr class="slds-line-height_reset">
+				<th class="" scope="col">
+					<div class="slds-truncate" title="Patient Name">Patient Name</div>
+				</th>
+				<th class="" scope="col">
+					<div class="slds-truncate" title="Scheduled Start DateTime">Scheduled Start DateTime</div>
+				</th>
+				<th class="" scope="col">
+					<div class="slds-truncate" title="Scheduled End DateTime">Scheduled End DateTime</div>
+				</th>
+				<th class="" scope="col">
+					<div class="slds-truncate" title="Status">Status</div>
+				</th>
+				<th class="" scope="col">
+					<div class="slds-truncate" title="Duration">Duration</div>
+				</th>				
+			</tr>
+		</thead>
+		<tbody>
+        <template for:each={futureAppointmentList} for:item="appt">
+
+			<tr key={appt.Id} class="slds-hint-parent">			
+				<td data-label="Patient Name">
+					<div class="slds-truncate" title={appt.patientName}>{appt.patientName}</div>
+				</td>
+				<td data-label="Scheduled Start DateTime">
+					<div class="slds-truncate" title={appt.scheduledStart}>{appt.scheduledStart}</div>
+				</td>
+				<td data-label="Scheduled End DateTime">
+					<div class="slds-truncate" title={appt.scheduledEnd}>{appt.scheduledEnd}</div>
+				</td>
+				<td data-label="Status">
+					<div class="slds-truncate" title={appt.status}>{appt.status}</div>
+				</td>
+				<td data-label="Duration">
+					<div class="slds-truncate" title={appt.duration}>{appt.duration}</div>
+				</td>				
+			</tr>
+        </template>			
+		</tbody>
+	</table>
+
+</template>
