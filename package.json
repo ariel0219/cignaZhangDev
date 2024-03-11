@@ -37,5 +37,8 @@
     "**/{aura,lwc}/**/*.js": [
       "eslint"
     ]
+  },
+  "dependencies": {
+    "@lwc/engine-dom": "^6.2.0"
   }
 }

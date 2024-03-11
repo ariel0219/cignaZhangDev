@@ -1,0 +1,59 @@
+<!--
+  @Component Name     : getVisitTypes.html
+  @Description        : 
+  @Author             : Ariel Zhang
+  @Group              : CGI - CIGNA - Sonic Team
+  @Last Modified By   : Ariel Zhang
+  @Last Modified On   : 2/24/2024, 11:06:00 AM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  DEV 1.0    2/24/2024, 11:06:00 AM   Ariel Zhang             Dev Version
+-->
+
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large"> <!--card margins-->
+        <div class="clickable-area" style="cursor: pointer;" onclick={handleExpandCollapseStartOfCare}> <!--make the area clickable and link with js method-->
+            <lightning-layout class="slds-card slds-card_boundary"> <!--draw boundries to make the tile area looks like a card-->
+                <lightning-card>
+                    <div class="slds-p-around_x-large"> <!--padding size around the card-->
+                        <span> <!--icon and text are in horizontal position-->
+                            <lightning-icon icon-name="standard:activation_target" alternative-text="Activation" class="custom-icon" size="large" style="margin-right:22px;"></lightning-icon> <!-- large icon is 48px -->
+                            <h1 style="font-weight: bold; font-size: 38px; vertical-align: middle; margin-bottom: 0;">Start of Care</h1>
+                        </span>
+                    </div>
+                </lightning-card>
+            </lightning-layout>
+        </div>
+            
+        <template if:true={isStartOfCareExpanded}> <!--radio button group is collapsable in this template-->
+            <div class="slds-p-around_large"> <!--padding for the radio button group-->
+                <lightning-radio-group name="startOfCareRadioGroup" options={startOfCareOptions} value={selectedVisitType} onchange={handleRadioSelectionChange} style="font-size: 30px"></lightning-radio-group>
+            </div>
+        </template>
+
+            <!-- GAP BETWEEN TWO CARDS-->
+            <div>
+                <br><br><br>
+            </div>
+
+            <div class="clickable-area" style="cursor: pointer;" onclick={handleExpandCollapseRoutine}><!--make the area clickable and link with js method-->
+                <lightning-layout class="slds-card slds-card_boundary"><!--draw boundries to make the tile area looks like a card-->
+                    <lightning-card>
+                        <div class="slds-p-around_x-large"><!--padding size around the card-->
+                            <span>
+                                <lightning-icon icon-name="standard:tour" alternative-text="Activation" class="custom-icon" size="large" style="margin-right:22px"></lightning-icon> <!-- large icon is 48px -->
+                                <h1 style="font-weight: bold; font-size: 38px; vertical-align: middle; margin-bottom: 0;">Routine</h1>
+                            </span><!--icon and text are in horizontal position-->
+                        </div>
+                    </lightning-card> 
+                </lightning-layout>
+            </div>
+            <template if:true={isRoutineExpanded}><!--radio button group is collapsable in this template-->
+                <div class="slds-p-around_large"><!--padding for the radio button group-->
+                    <lightning-radio-group name="routinRadioGroup" options={routineOptions} value={selectedVisitType} onchange={handleRadioSelectionChange} style="font-size: 30px"></lightning-radio-group>
+                </div>
+            </template>
+    </div>
+</template>

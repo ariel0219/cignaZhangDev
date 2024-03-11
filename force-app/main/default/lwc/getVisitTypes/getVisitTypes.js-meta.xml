@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>get Visit Types</masterLabel>
+    <description>get Visit Types Details</description>
+    <targets> <!--add lightning__flowsScreen as target because the selected value will pass to the next stage-->
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!--the name should match the variable name in js, and label will be found in the flow configuration.-->
+            <property name="selectedVisitType" type="String" label="DO NOT INPUT HERE"/> 
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large"> <!--card margins-->
+        <div>
+            <lightning-layout class="slds-card slds-card_boundary"> <!--draw boundries to make the tile area looks like a card-->
+                <lightning-card>
+                    <div class="slds-p-around_x-large"> <!--padding size around the card-->
+                        <span> <!--icon and text are in horizontal position-->
+                            <lightning-icon icon-name="standard:activation_target" alternative-text="Activation" class="custom-icon" size="large" style="margin-right:22px;"></lightning-icon> <!-- large icon is 48px -->
+                            <h1 style="font-weight: bold; font-size: 38px; vertical-align: middle; margin-bottom: 0;">{selectedVisitType}</h1>
+                        </span>
+                    </div>
+                </lightning-card>
+            </lightning-layout> 
+        </div>
+
+        <div>
+            <br>
+        </div>
+
+        
+        <div class="slds-p-around_large"> <!--padding for the radio button group-->
+            <lightning-radio-group name="appointmentTypesRadioGroup" options={getAppointmentTypesOptions} value={selectedApointmentType} onchange={handleRadioSelectionChange} style="font-size: 30px"></lightning-radio-group>
+        </div>
+        
+    </div>
+</template>
